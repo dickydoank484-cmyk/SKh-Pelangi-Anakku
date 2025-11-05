@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SKh Pelangi Anakku</title>
+  <style>
+    * {
+      margin: 0; padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+    body {
+      background: #fefefe;
+      color: #333;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    /* ===== Navbar ===== */
+    header {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      background: rgba(255,255,255,0.9);
+      backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 3rem;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
+    header h1 {
+      font-size: 1.3rem;
+      color: #004b7f;
+      font-weight: 700;
+    }
+    nav a {
+      margin-left: 20px;
+      color: #004b7f;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+    nav a:hover {
+      color: #ffd43b;
+    }
+
+    /* ===== Hero ===== */
+    .hero {
+      height: 100vh;
+      background: url(assets/img/background.jpg) center/cover fixed;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      padding: 0 15px;
+    }
+    .hero h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.4);
+    }
+    .hero p {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+    }
+    .hero button {
+      background: #ffd43b;
+      color: #004b7f;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 30px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .hero button:hover {
+      background: #fff;
+    }
+
+    section {
+      padding: 90px 10%;
+      text-align: center;
+    }
+
+    section h2 {
+      font-size: 2rem;
+      color: #ffd43b;
+      margin-bottom: 40px;
+      position: relative;
+    }
+
+    section h2::after {
+      content: "";
+      width: 70px;
+      height: 4px;
+      background: #ffd43b;
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    /* ===== Program ===== */
+    .programs {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+   /* === Galeri Card === */
+.card-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  padding: 30px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.card h3 {
+  font-size: 1.1rem;
+  margin: 15px;
+  color: #333;
+}
+
+.card p {
+  margin: 0 15px 20px;
+  color: #666;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+
+    /* ===== Slider (Kegiatan) ===== */
+    .slider {
+      position: relative;
+      max-width: 900px;
+      margin: auto;
+      overflow: hidden;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+    .slides {
+      display: flex;
+      width: 300%;
+      animation: slide 15s infinite;
+    }
+    .slides img {
+      width: 100%;
+    }
+
+    @keyframes slide {
+      0% { transform: translateX(0%); }
+      33% { transform: translateX(-100%); }
+      66% { transform: translateX(-200%); }
+      100% { transform: translateX(0%); }
+    }
+
+    /* ===== Form ===== */
+    form {
+      max-width: 500px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    input, textarea {
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+    button.submit {
+      background: #004b7f;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 25px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button.submit:hover {
+      background: #ffd43b;
+      color: #004b7f;
+    }
+
+    /* ===== Kontak ===== */
+    .contact-info {
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+      line-height: 1.8;
+    }
+    iframe {
+      width: 100%;
+      height: 300px;
+      border: none;
+      border-radius: 15px;
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      background: #004b7f;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+      }
+      nav {
+        margin-top: 8px;
+      }
+      .hero h2 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header>
+    <h1>🌈 SKh Pelangi Anakku</h1>
+    <nav>
+      <a href="#beranda">Beranda</a>
+      <a href="#program">Program</a>
+      <a href="#kegiatan">Kegiatan</a>
+      <a href="#daftar">Pendaftaran</a>
+      <a href="#kontak">Kontak</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section id="beranda" class="hero">
+    <h2>Selamat Datang di SKh Pelangi Anakku</h2>
+    <p>Tempat terbaik untuk tumbuh dan belajar bagi anak berkebutuhan khusus 🌈</p>
+    <button onclick="document.getElementById('daftar').scrollIntoView({behavior:'smooth'})">
+      Daftar Sekarang
+    </button>
+  </section>
+  
+<!-- SLIDER FOTO KEGIATAN SEKOLAH -->
+<section id="galeri" class="reveal">
+  <h2>Galeri Kegiatan</h2>
+  <div class="card-gallery">
+    <div class="card">
+      <img src="assets/img/kegiatan2.jpg" alt="Kegiatan 1">
+      <h3>Kegiatan Sekolah</h3>
+      <p>kegiatan sekolah bertujuan untuk meningkatkan kemandirian dan kepercayadirian anak</p>
+    </div>
+    <div class="card">
+      <img src="assets/img/kegiatan 5.jpg" alt="Kegiatan 2">
+      <h3>Kegiatan Terapi</h3>
+      <p>Meningkatkan Kemandirian dan kemampuan anak.</p>
+    </div>
+    <div class="card">
+      <img src="assets/img/kegiatan4.jpg" alt="Kegiatan 3">
+      <h3>Pembelajaran Kelas</h3>
+      <p>Suasana belajar menyenangkan dengan pendekatan individual.</p>
+    </div>
+  </div>
+</section>
+
+
+<style>
+  #galeri {
+    padding: 80px 60px;
+    background: #f8f9fa;
+    text-align: center;
+  }
+<style>
+    
+  .slider {
+    display: flex;
+    width: 100%;
+    transition: transform 0.6s ease-in-out;
+  }
+
+  .slider img {
+    width: 100%;
+    flex: 0 0 100%; /* pastikan tiap gambar isi 100% lebar container */
+    object-fit: cover;
+  }
+
+  .slider-container {
+    position: relative;
+    overflow: hidden;
+    max-width: 900px;
+    margin: 40px auto;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+  }
+</style>
+
+</style>
+
+  <!-- Program -->
+  <section id="program" class="reveal">
+    <h2>Program Sekolah & Terapi</h2>
+    <div class="programs">
+      <div class="card">
+        <h3>Terapi Wicara</h3>
+        <p>Meningkatkan kemampuan komunikasi anak melalui metode yang menyenangkan.</p>
+      </div>
+      <div class="card">
+        <h3>Terapi Okupasi</h3>
+        <p>Melatih keterampilan hidup sehari-hari agar anak lebih mandiri.</p>
+      </div>
+      <div class="card">
+        <h3>Terapi Sensori Integrasi</h3>
+        <p>Menstimulasi dan mengatur respon sensorik anak secara bertahap.</p>
+      </div>
+  </section>
+
+<!-- GALERI VIDEO TERAPI & PEMBELAJARAN -->
+<section id="video" class="reveal">
+  <h2>Galeri Video Terapi & Pembelajaran</h2>
+  <p>Beberapa cuplikan kegiatan terapi, pembelajaran, dan interaksi anak-anak di SKH Pelangi Anakku.</p>
+
+  <div class="video-gallery">
+    <div class="video-card">
+      <iframe src="https://www.youtube.com/embed/ScMzIvxBSi4" title="Video Terapi 1" allowfullscreen></iframe>
+      <h4>Terapi Okupasi</h4>
+    </div>
+    <div class="video-card">
+      <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY" title="Video Terapi 2" allowfullscreen></iframe>
+      <h4>Terapi Wicara</h4>
+    </div>
+    <div class="video-card">
+      <iframe src="https://www.youtube.com/embed/ysz5S6PUM-U" title="Video Terapi 3" allowfullscreen></iframe>
+      <h4>Kegiatan Pembelajaran di Kelas</h4>
+    </div>
+  </div>
+</section>
+<!-- EFEK SCROLL REVEAL -->
+<style>
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease;
+  }
+
+  .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+
+<script>
+  function revealOnScroll() {
+    const reveals = document.querySelectorAll('.reveal');
+    for (let i = 0; i < reveals.length; i++) {
+      const windowHeight = window.innerHeight;
+      const elementTop = reveals[i].getBoundingClientRect().top;
+      const revealPoint = 100;
+
+      if (elementTop < windowHeight - revealPoint) {
+        reveals[i].classList.add('active');
+      } else {
+        reveals[i].classList.remove('active');
+      }
+    }
+  }
+
+  window.addEventListener('scroll', revealOnScroll);
+  revealOnScroll();
+</script>
+
+
+<style>
+  #video {
+    background: #ffffff;
+    padding: 80px 60px;
+    text-align: center;
+  }
+
+  #video h2 {
+    color: #0077b6;
+    margin-bottom: 10px;
+  }
+
+  #video p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 40px;
+  }
+
+  .video-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+    justify-items: center;
+  }
+
+  .video-card {
+    background: #f8f9fa;
+    border-radius: 15px;
+    padding: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: 0.3s;
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .video-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+  }
+
+  .video-card iframe {
+    width: 100%;
+    height: 220px;
+    border-radius: 10px;
+  }
+
+  .video-card h4 {
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #0077b6;
+  }
+</style>
+
+
+  <!-- Pendaftaran -->
+  <section id="daftar" class="reveal">
+    <h2>Pendaftaran Online</h2>
+    <form onsubmit="return sendToWhatsApp(event)">
+      <input type="text" id="nama" placeholder="Nama Lengkap" required>
+      <input type="tel" id="telepon" placeholder="Nomor WhatsApp" required>
+      <textarea id="pesan" rows="4" placeholder="Pesan atau pertanyaan Anda..."></textarea>
+      <button class="submit" type="submit">Kirim ke WhatsApp</button>
+    </form>
+  </section>
+
+  <!-- Kontak -->
+  <section id="kontak" class="reveal">
+    <h2>Kontak & Alamat</h2>
+    <div class="contact-info">
+      <p>📍 Jl. Villa Mutiara Pluit No.5 Blok C6, RT.02/RW.011, Periuk, Kec. Periuk, Kota Tangerang, Banten 15131, Indonesia</p>
+      <p>📞 0896-4355-9783</p>
+      <p>📧 Sekolahkhususpelangianakku@gmail.com</p>
+      <p>
+        <a href="https://www.instagram.com/skh_pelangianakku?igsh=bTd3ZDV6M2Nsemo0" target="_blank">Instagram</a> |
+        <a href="https://wa.me/6289643559783" target="_blank">WhatsApp</a> |
+        <a href="https://youtube.com/@sekolahkhususpelangianakku?si=oEKWvHfpm3cmiEjC" target="_blank">YouTube</a>
+      </p>
+    </div>
+   <div style="position:relative; overflow:hidden; width:100%; padding-top:56.25%;">
+  <iframe
+    src="https://www.google.com/maps?q=SKH+Pelangi+Anakku+Cabang+Sangiang+Priuk&output=embed"
+    style="position:absolute; top:0; left:0; width:100%; height:100%; border:0; border-radius:15px;"
+    allowfullscreen=""
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade">
+  </iframe>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+  </section>
+
+  <footer>
+    © 2025 SKH Pelangi Anakku | Dibuat dengan 💙 oleh Tim IT & Media
+  </footer>
+
+  <script>
+    // ===== Kirim Data ke WhatsApp =====
+    function sendToWhatsApp(e) {
+      e.preventDefault();
+      const nama = document.getElementById("nama").value;
+      const telepon = document.getElementById("telepon").value;
+      const pesan = document.getElementById("pesan").value;
+      const nomorWA = "6281234567890"; // Ganti dengan nomor WA sekolah lu
+      const text = `Halo, saya ${nama}.%0A%0A${pesan}%0A%0A(No. WA: ${telepon})`;
+      const url = `https://wa.me/${nomorWA}?text=${text}`;
+      window.open(url, "_blank");
+    }
+  </script>
+  
+  <script>
+  const slider = document.querySelector(".slider");
+  const images = document.querySelectorAll(".slider img");
+  const prev = document.querySelector(".prev");
+  const next = document.querySelector(".next");
+
+  let index = 0;
+  function showSlide(i) {
+    index = (i + images.length) % images.length;
+    slider.style.transform = `translateX(${-index * 100}%)`;
+  }
+
+  prev.addEventListener("click", () => showSlide(index - 1));
+  next.addEventListener("click", () => showSlide(index + 1));
+  setInterval(() => showSlide(index + 1), 4000);
+</script>
+
+</body>
+</body>
+</html>
