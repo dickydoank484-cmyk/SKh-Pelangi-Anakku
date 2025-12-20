@@ -272,38 +272,51 @@ html {
     padding-left: 20px;
   }
 
-  /* === Bagian Fasilitas === */
-  .facility-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 25px;
-    max-width: 900px;
-    margin: 20px auto 0;
-  }
+/* === Bagian Fasilitas (UPDATED 3 KOLOM) === */
+.facility-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* INI KUNCINYA: 3 Kolom */
+  gap: 25px;
+  max-width: 1000px;
+  margin: 20px auto 0;
+}
 
-  .facility-item {
-    background: var(--bg-white);
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: var(--shadow-light) 0px 5px 15px;
-    transition: 0.3s ease;
-  }
-  
-  .facility-item:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-dark) 0px 8px 20px;
-  }
+.facility-item {
+  background: var(--bg-white);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: var(--shadow-light) 0px 5px 15px;
+  transition: 0.3s ease;
+}
 
-  .facility-item span {
+.facility-item:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-dark) 0px 8px 20px;
+}
+
+.facility-item span {
   font-size: 2rem;
   display: inline-block;
   margin-bottom: 15px;
-  background: #eef5fa; /* Lingkaran background tipis */
+  background: #eef5fa;
   width: 70px;
   height: 70px;
   line-height: 70px;
   border-radius: 50%;
   color: var(--primary-color);
+}
+
+.facility-item h4 {
+  color: var(--primary-color);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/* Biar di HP tetep rapi (1 kolom ke bawah) */
+@media (max-width: 768px) {
+  .facility-grid {
+    grid-template-columns: 1fr; /* Balik ke 1 kolom kalau di HP */
+  }
 }
  
   
@@ -942,22 +955,24 @@ html {
     </div>
     <div class="facility-item">
       <span>🤸</span>
-      <h4>Ruang Sensori Integrasi</span>
+      <h4>Ruang Sensori Integrasi</h4>
     </div>
+    
     <div class="facility-item">
       <span>🎨</span>
-      <h4>Area Kreativitas</span>
+      <h4>Area Kreativitas</h4>
     </div>
     <div class="facility-item">
       <span>🌳</span>
-      <h4>Area Bermain Outdoor</span>
+      <h4>Area Bermain Outdoor</h4>
     </div>
     <div class="facility-item">
       <span>📚</span>
-      <h4>Pojok Baca</span>
+      <h4>Pojok Baca</h4>
     </div>
   </div>
 </section>
+
 
 <section id="video" class="reveal">
   <h2>Galeri Video Terapi & Pembelajaran</h2>
